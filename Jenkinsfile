@@ -22,5 +22,12 @@ ls -la
         archiveArtifacts 'target/*.war'
       }
     }
+    stage('Test') {
+      steps {
+        sh './jenkins/test-all.sh'
+        junit '**/surefire-reports/**/*.xml'
+        junit '**/test-results/karma/*.xml'
+      }
+    }
   }
 }
