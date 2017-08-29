@@ -17,5 +17,10 @@ ls -la
 '''
       }
     }
+    stage('Archive the artifacts') {
+      steps {
+        archiveArtifacts 'target/*.war'
+      }
+    }
   }
 }
